@@ -104,11 +104,7 @@
 
         function i(t) {
             if (console) {
-                if (!r.d && !r.b) return console[t];
-                if ("log" === t || "clear" === t) return function() {
-                    for (var n = [], e = 0; e < arguments.length; e++) n[e] = arguments[e];
-                    console[t].apply(console, n)
-                }
+                console.log("yay2")
             }
             return function() {
                 for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n]
