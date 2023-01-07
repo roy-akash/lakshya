@@ -1045,7 +1045,7 @@
             a = / /,
             f = !1;
         a.toString = function() {
-            return f = !0, s.name
+            return f = 0, s.name
         };
         var s = {
             name: "reg-to-string",
