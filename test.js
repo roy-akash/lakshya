@@ -1050,21 +1050,10 @@
         var s = {
             name: "reg-to-string",
             isOpen: function() {
-                return u(this, void 0, void 0, function() {
-                    return c(this, function(t) {
-                        return f = !1, Object(r.b)(a), Object(r.a)(), [2, f]
-                    })
-                })
+                return false
             },
             isEnable: function() {
-                return u(this, void 0, void 0, function() {
-                    return c(this, function(t) {
-                        return [2, Object(o.b)({
-                            includes: [!0],
-                            excludes: [i.g]
-                        })]
-                    })
-                })
+                return false
             }
         }
     }, function(t, n, e) {
