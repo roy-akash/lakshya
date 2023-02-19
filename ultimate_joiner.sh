@@ -2,6 +2,13 @@
 
 #set -ex
 
+function remove_files(){
+	local input_files=("${@:1}")
+	for input_file in "${input_files[@]}"; do
+        rm "${input_file}"
+    done
+}
+
 function cut_video() {
   # Get arguments
   local filename=$1
@@ -230,6 +237,7 @@ function join_cuts(){
 	# will remain empty if not required
 	local final_cuts=()
 	local cuts=()
+	local remove_cuts=()
 	
 	final_cut_iterator=1;
 	iterator=1;
@@ -241,6 +249,7 @@ function join_cuts(){
 		join_arg=$( echo "$line" | awk -F' ' '{print $4}')
 
 		cuts+=("$input_file")
+		remove_cuts+=("$input_file")
 
 		if [ -n "$join_arg"  ] && [ "$join_arg" = "no_fade" ] ; then
 				
@@ -261,6 +270,8 @@ function join_cuts(){
 
 
 	ffmpeg_join_files "$output_file" "${final_cuts[@]}"
+	remove_files "${final_cuts[@]}"
+	remove_files "${remove_cuts[@]}"
 
 }
 
